@@ -37,7 +37,7 @@ const MainSearch = () => {
     <Container>
       <Row>
         <Col xs={10} className="mx-auto my-3">
-          <h1>Remote Jobs Search</h1>
+          <h1 className="my-4">Remote Jobs Search</h1>
           <Link to="/favourite">
             <Badge className="fs-4" bg="secondary">
               See Favourites

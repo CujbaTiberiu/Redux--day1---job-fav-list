@@ -30,16 +30,17 @@ const mainReducer = (state = initialState, action) => {
                 },
             }
 
-        case 'REMOVE_FROM_CART':
+        case 'REMOVE_FAV':
             return {
                 ...state,
-                cart: {
+                favs: {
                     // devo togliere da content l'elemento con indice action.payload
                     content: [
-                        ...state.cart.content.slice(0, action.payload),
-                        ...state.cart.content.slice(action.payload + 1),
+                        //...state.favs.content.slice(0, action.payload),
+                        //...state.favs.content.slice(action.payload + 1),
+                        ...state.favs.content.filter((job, i) => i !== action.payload),
                     ],
-                    //   content: state.cart.content.filter((book, i) => i !== action.payload),
+                    //   content: state.favs.content.filter((book, i) => i !== action.payload),
                 },
             }
 
