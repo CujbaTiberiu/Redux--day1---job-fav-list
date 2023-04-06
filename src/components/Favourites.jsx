@@ -1,6 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import Badge from "react-bootstrap/Badge";
 
 const Favorites = () => {
   const favContainer = useSelector((state) => state.favs.content);
@@ -27,6 +29,11 @@ const Favorites = () => {
               </ListGroup.Item>
             ))}
           </ListGroup>
+          <Link to="/">
+            <Badge className="fs-4" bg="secondary">
+              Go Back
+            </Badge>
+          </Link>
         </Col>
       </Row>
     </Container>
