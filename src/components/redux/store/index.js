@@ -1,8 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit'
-import mainReducer from '../reducers'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import addRemoveJobReducer from '../reducers/addRemoveJob'
+import findJobReducer from '../reducers/findJob'
+
+const jointReducer = combineReducers({
+    addremoveFavs: addRemoveJobReducer,
+    jobs: findJobReducer
+})
 
 const store = configureStore({
-    reducer: mainReducer,
+    reducer: jointReducer,
 
 })
 

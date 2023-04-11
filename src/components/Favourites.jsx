@@ -4,16 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
+import { removeFav } from "./redux/actions";
 
 const Favourites = () => {
-  const favContainer = useSelector((state) => state.favs.content);
+  const favContainer = useSelector((state) => state.addremoveFavs.favs.content);
+  console.log(favContainer);
   const dispatch = useDispatch();
-  const removeFav = (i) => {
-    dispatch({
-      type: "REMOVE_FAV",
-      payload: i,
-    });
-  };
+
   return (
     <Container>
       <Row>
@@ -29,13 +26,16 @@ const Favourites = () => {
                   <p>
                     <span className="fw-bold">Name</span> -{" "}
                     <a href={fav.url} alt="company website">
-                      {fav.company_name}
+                      {fav[0]}
                     </a>{" "}
                   </p>
                   <p>
                     <span className="fw-bold">Title</span> - {fav.title}
                   </p>
-                  <Button variant="outline-danger" onClick={() => removeFav(i)}>
+                  <Button
+                    variant="outline-danger"
+                    onClick={() => dispatch(removeFav(fav._id))}
+                  >
                     Remove
                   </Button>{" "}
                 </ListGroup.Item>
