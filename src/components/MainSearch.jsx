@@ -15,16 +15,13 @@ const MainSearch = () => {
   const jobs = useSelector((state) => state.jobs.jobs.content[0]?.data || []);
   console.log(jobs);
 
-  useEffect(() => {
-    dispatch(fetchJobs(query));
-  }, []);
-
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(fetchJobs(query));
   };
 
   return (
