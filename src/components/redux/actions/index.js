@@ -11,7 +11,7 @@ export const addFav = (job) => {
 
 export const removeFav = (id) => {
     return {
-        type: ADD_FAV,
+        type: REMOVE_FAV,
         payload: id
     }
 }
