@@ -1,6 +1,7 @@
 export const ADD_FAV = 'ADD_FAV'
 export const REMOVE_FAV = 'REMOVE_FAV'
 export const GET_JOB = 'GET_JOB'
+export const REFRESH = 'REFRESH'
 
 export const addFav = (job) => {
     return {
@@ -8,6 +9,12 @@ export const addFav = (job) => {
         payload: job
     }
 }
+
+export const emptyJobs = () => {
+    return {
+        type: REFRESH,
+    };
+};
 
 export const removeFav = (id) => {
     return {
@@ -26,6 +33,7 @@ export const getJobs = (jobs) => {
 
 export const fetchJobs = (query) => {
     return async (dispatch, getState) => {
+        dispatch(emptyJobs());
         let resp = await fetch(`https://strive-benchmark.herokuapp.com/api/jobs?search=${query}&limit=20`)
         let jobs = await resp.json()
         console.log('action fetch', jobs)

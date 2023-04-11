@@ -14,6 +14,14 @@ const findJobReducer = (state = initialState, action) => {
                     content: [...state.jobs.content, action.payload],
                 },
             };
+        case "REFRESH":
+            return {
+                ...state,
+                jobs: {
+                    ...state.jobs,
+                    content: [],
+                }
+            }
         default: return state
     }
 }

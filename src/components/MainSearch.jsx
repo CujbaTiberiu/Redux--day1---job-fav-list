@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchJobs } from "./redux/actions";
+import { emptyJobs } from "./redux/actions";
 
 const MainSearch = () => {
   const [query, setQuery] = useState("");
@@ -14,6 +15,10 @@ const MainSearch = () => {
 
   const jobs = useSelector((state) => state.jobs.jobs.content[0]?.data || []);
   console.log(jobs);
+
+  useEffect(() => {
+    dispatch(emptyJobs());
+  }, []);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
