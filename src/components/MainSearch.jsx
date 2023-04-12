@@ -13,7 +13,7 @@ const MainSearch = () => {
 
   const dispatch = useDispatch();
 
-  const jobs = useSelector((state) => state.jobs.jobs.content[0]?.data || []);
+  const jobs = useSelector((state) => state.jobs.content[0]?.data || []);
   console.log(jobs);
 
   useEffect(() => {
@@ -51,7 +51,7 @@ const MainSearch = () => {
           </Form>
         </Col>
         <Col xs={10} className="mx-auto mb-5">
-          {query &&
+          {jobs &&
             jobs.map((jobData) => <Job key={jobData._id} data={jobData} />)}
         </Col>
       </Row>

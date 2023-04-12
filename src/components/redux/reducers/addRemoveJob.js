@@ -1,29 +1,27 @@
+import { ADD_FAV, REMOVE_FAV } from "../actions";
+
 const initialState = {
-    favs: {
-        content: [],
-    },
+    content: [],
 };
 
-const addRemoveJobReducer = (state = initialState, action) => {
+const addRemoveJob = (state = initialState, action) => {
     switch (action.type) {
-        case "ADD_FAV":
+        case ADD_FAV:
             return {
                 ...state,
-                favs: {
-                    content: [...state.favs.content, action.payload],
-                },
+
+                content: [...state.content, action.payload],
             };
 
-        case "REMOVE_FAV":
+        case REMOVE_FAV:
             return {
                 ...state,
-                favs: {
-                    content: [
-                        //...state.favs.content.slice(0, action.payload),
-                        //...state.favs.content.slice(action.payload + 1),
-                        ...state.favs.content.filter((fav) => fav._id !== action.payload),
-                    ],
-                },
+
+                content: [
+                    //...state.favs.content.slice(0, action.payload),
+                    //...state.favs.content.slice(action.payload + 1),
+                    ...state.content.filter((fav) => fav._id !== action.payload),
+                ],
             };
 
         default:
@@ -31,4 +29,4 @@ const addRemoveJobReducer = (state = initialState, action) => {
     }
 };
 
-export default addRemoveJobReducer;
+export default addRemoveJob;

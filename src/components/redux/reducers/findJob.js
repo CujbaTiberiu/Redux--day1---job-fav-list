@@ -1,29 +1,29 @@
+import { GET_JOB, REFRESH } from "../actions";
+
 const initialState = {
-    jobs: {
-        content: [],
-    },
+    content: [],
 };
 
 
-const findJobReducer = (state = initialState, action) => {
+const findJob = (state = initialState, action) => {
     switch (action.type) {
-        case "GET_JOB":
+        case GET_JOB:
             return {
                 ...state,
-                jobs: {
-                    content: [...state.jobs.content, action.payload],
-                },
+
+                content: [...state.content, action.payload],
+
             };
-        case "REFRESH":
+        case REFRESH:
             return {
                 ...state,
-                jobs: {
-                    ...state.jobs,
-                    content: [],
-                }
+
+
+                content: [],
+
             }
         default: return state
     }
 }
 
-export default findJobReducer;
+export default findJob;

@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import { removeFav } from "./redux/actions";
 
 const Favourites = () => {
-  const favContainer = useSelector((state) => state.addremoveFavs.favs.content);
+  const favContainer = useSelector((state) => state.favs.content);
   console.log(favContainer);
   const dispatch = useDispatch();
 
